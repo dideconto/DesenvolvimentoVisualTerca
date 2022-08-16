@@ -1,0 +1,5 @@
+### Solicitando previsão do tempo
+GET https://localhost:5001/api/usuario/listar
+
+###
+GET https://www.google.com/
