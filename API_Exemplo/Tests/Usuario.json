@@ -1,0 +1,35 @@
+//Um único objeto
+{
+    "email" : "diogo@diogo.com",
+    "senha" : "123",
+    "acessos" : 539,
+    "avaliacao" : 4.9,
+    "ativo" :  true,
+    "permissoes" : [
+        "adm", "user"
+    ]
+}
+
+//Vetor de objetos
+[
+    {
+        "email" : "diogo@diogo.com",
+        "senha" : "123",
+        "acessos" : 539,
+        "avaliacao" : 4.9,
+        "ativo" :  true,
+        "permissoes" : [
+            "adm", "user"
+        ]
+    },
+    {
+        "email" : "diogo@diogo.com",
+        "senha" : "123",
+        "acessos" : 539,
+        "avaliacao" : 4.9,
+        "ativo" :  true,
+        "permissoes" : [
+            "adm", "user"
+        ]
+    }
+]

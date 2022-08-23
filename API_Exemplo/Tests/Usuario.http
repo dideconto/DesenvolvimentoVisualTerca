@@ -1,5 +1,14 @@
-### Solicitando previsão do tempo
+### Listar os usuários
 GET https://localhost:5001/api/usuario/listar
 
-###
-GET https://www.google.com/
+### Cadastrar um usuário
+POST https://localhost:5001/api/usuario/cadastrar
+Content-Type: application/json
+
+{
+    "email" : "diogo@diogo.com",
+    "senha" : "123"
+}
+
+### Buscar um usuário
+GET https://localhost:5001/api/usuario/buscar/diogo@diogo.com
