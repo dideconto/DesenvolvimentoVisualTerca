@@ -21,6 +21,9 @@ namespace API.Controllers
         [Route("cadastrar")]
         public IActionResult Cadastrar([FromBody] Funcionario funcionario)
         {
+            // DataContext ctx = new DataContext();
+            // ctx.Funcionarios.Add(funcionario);
+
             funcionarios.Add(funcionario);
             return Created("", funcionario);
         }
