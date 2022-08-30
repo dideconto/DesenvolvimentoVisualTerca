@@ -1,0 +1,14 @@
+### Listar os funcionários
+GET https://localhost:5001/api/funcionario/listar
+
+### Cadastrar um funcionário
+POST https://localhost:5001/api/funcionario/cadastrar
+Content-Type: application/json
+
+{
+    "nome" : "Diogo Steinke Deconto",
+    "cpf" : "123456789"
+}
+
+### Buscar um funcionário
+GET https://localhost:5001/api/funcionario/buscar/123456789
