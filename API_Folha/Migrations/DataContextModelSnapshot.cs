@@ -16,6 +16,17 @@ namespace API_Folha.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.17");
 
+            modelBuilder.Entity("API.Models.FolhaPagamento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Folhas");
+                });
+
             modelBuilder.Entity("API.Models.Funcionario", b =>
                 {
                     b.Property<int>("Id")

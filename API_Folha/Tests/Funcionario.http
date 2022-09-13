@@ -7,20 +7,21 @@ Content-Type: application/json
 
 {
     "nome" : "Diogo Steinke Deconto",
-    "cpf" : "123456789"
+    "cpf" : "1234567891"
 }
 
 ### Buscar um funcionário pelo CPF
-GET https://localhost:5001/api/funcionario/buscar/123456789
+GET https://localhost:5001/api/funcionario/buscar/1234567891
 
-### Deletar um funcionário pelo CPF
-DELETE https://localhost:5001/api/funcionario/deletar/123456789
+### Deletar um funcionário pelo Id
+DELETE https://localhost:5001/api/funcionario/deletar/3
 
 ### Alterar um funcionário
 PATCH  https://localhost:5001/api/funcionario/alterar
 Content-Type: application/json
 
 {
+    "id" : 4,
     "nome" : "Diogo Steinke Deconto Modificado",
     "cpf" : "123456789"
 }

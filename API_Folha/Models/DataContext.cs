@@ -1,3 +1,4 @@
+
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Models
@@ -12,5 +13,6 @@ namespace API.Models
         //Definir quais as classes de modelo servirão para as         
         //tabelas no banco de dados
         public DbSet<Funcionario> Funcionarios { get; set; }
+        public DbSet<FolhaPagamento> Folhas { get; set; }
     }
 }

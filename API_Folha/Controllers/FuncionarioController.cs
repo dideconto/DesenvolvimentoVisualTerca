@@ -9,22 +9,22 @@ namespace API.Controllers
     [Route("api/funcionario")]
     public class FuncionarioController : ControllerBase
     {
-        private static List<Funcionario> funcionarios = new List<Funcionario>();
+        private readonly DataContext _context;
+        public FuncionarioController(DataContext context) =>
+            _context = context;
 
         // GET: /api/funcionario/listar
         [HttpGet]
         [Route("listar")]
-        public IActionResult Listar() => Ok(funcionarios);
+        public IActionResult Listar() => Ok(_context.Funcionarios.ToList());
 
         // POST: /api/funcionario/cadastrar
         [HttpPost]
         [Route("cadastrar")]
         public IActionResult Cadastrar([FromBody] Funcionario funcionario)
         {
-            // DataContext ctx = new DataContext();
-            // ctx.Funcionarios.Add(funcionario);
-
-            funcionarios.Add(funcionario);
+            _context.Funcionarios.Add(funcionario);
+            _context.SaveChanges();
             return Created("", funcionario);
         }
 
@@ -33,23 +33,21 @@ namespace API.Controllers
         [Route("buscar/{cpf}")]
         public IActionResult Buscar([FromRoute] string cpf)
         {
-            Funcionario funcionario = funcionarios.
+            Funcionario funcionario = _context.Funcionarios.
                 FirstOrDefault(f => f.Cpf.Equals(cpf));
             return funcionario != null ? Ok(funcionario) : NotFound();
         }
 
-        // DELETE: /api/funcionario/deletar/{cpf}
+        // DELETE: /api/funcionario/deletar/{id}
         [HttpDelete]
-        [Route("deletar/{cpf}")]
-        public IActionResult Deletar([FromRoute] string cpf)
+        [Route("deletar/{id}")]
+        public IActionResult Deletar([FromRoute] int id)
         {
-            Funcionario funcionario = funcionarios.FirstOrDefault
-            (
-                f => f.Cpf.Equals(cpf)
-            );
-            if(funcionario != null)
+            Funcionario funcionario = _context.Funcionarios.Find(id);
+            if (funcionario != null)
             {
-                funcionarios.Remove(funcionario);
+                _context.Funcionarios.Remove(funcionario);
+                _context.SaveChanges();
                 return Ok(funcionario);
             }
             return NotFound();
@@ -60,16 +58,16 @@ namespace API.Controllers
         [Route("alterar")]
         public IActionResult Alterar([FromBody] Funcionario funcionario)
         {
-            Funcionario funcionarioEncontrado = funcionarios.FirstOrDefault
-            (
-                f => f.Cpf.Equals(funcionario.Cpf)
-            );
-            if(funcionarioEncontrado != null)
+            try
             {
-                funcionarioEncontrado.Nome = funcionario.Nome;
-                return Ok(funcionarioEncontrado);
+                _context.Funcionarios.Update(funcionario);
+                _context.SaveChanges();
+                return Ok(funcionario);
             }
-            return NotFound();
+            catch
+            {
+                return NotFound();
+            }
         }
     }
 }

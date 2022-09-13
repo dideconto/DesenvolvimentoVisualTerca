@@ -1,8 +1,16 @@
 PASSO A PASSO DO EF CORE SQLITE:
 
-1 - Instalar as ferramentas do EF de modo global;
+-- INSTALAÇÃO DE BIBLIOTECAS/PACOTES -- 
+
+1 - Instalar as ferramentas do EF de modo global - Executar apenas uma vez;
 2 - Instalar as bibliotecas/pacotes no projeto (Sqlite e Design);
+
+-- CONFIGURAÇÃO DO BANCO NO PROJETO --
+
 3 - Criar a classe de contexto;
 4 - Configurar o Startup.cs;
+
+-- CRIAR OU ATUALIZAR A ESTRUTURA DO BANCO DE DADOS --
+
 5 - Adicionar uma migração;
 6 - Atualizar o banco de dados.

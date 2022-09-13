@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API_Folha.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220830151104_Initial")]
+    [Migration("20220913135433_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,6 +17,17 @@ namespace API_Folha.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.17");
+
+            modelBuilder.Entity("API.Models.FolhaPagamento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Folhas");
+                });
 
             modelBuilder.Entity("API.Models.Funcionario", b =>
                 {
