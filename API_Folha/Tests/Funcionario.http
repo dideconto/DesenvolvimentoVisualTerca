@@ -6,22 +6,25 @@ POST https://localhost:5001/api/funcionario/cadastrar
 Content-Type: application/json
 
 {
-    "nome" : "Diogo Steinke Deconto",
-    "cpf" : "1234567891"
+    "nome" : "Diogo",
+    "cpf" : "12312312312",
+    "email" : "asd@asd.com",
+    "salario" : 1000,
+    "nascimento" : "1900-09-20"
 }
 
 ### Buscar um funcionário pelo CPF
 GET https://localhost:5001/api/funcionario/buscar/1234567891
 
 ### Deletar um funcionário pelo Id
-DELETE https://localhost:5001/api/funcionario/deletar/3
+DELETE https://localhost:5001/api/funcionario/deletar/4
 
 ### Alterar um funcionário
 PATCH  https://localhost:5001/api/funcionario/alterar
 Content-Type: application/json
 
 {
-    "id" : 4,
-    "nome" : "Diogo Steinke Deconto Modificado",
+    "id" : 5,
+    "nome" : "Diogo Steinke Deconto Modificado Teste",
     "cpf" : "123456789"
 }
