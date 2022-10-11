@@ -1,0 +1,20 @@
+# ### Listar os funcionários
+# GET https://localhost:5001/api/funcionario/listar
+
+### Cadastrar uma folha
+POST https://localhost:5001/api/folha/cadastrar
+Content-Type: application/json
+
+{
+    "valorHora" : 50,
+    "quantidadeHoras" : 100,
+    "mes" : 10,
+    "ano" : 2022
+}
+
+### Listar folhas
+GET https://localhost:5001/api/folha/listar
+
+
+### Filtrar folhas por mês e ano
+GET https://localhost:5001/api/folha/filtrar/10/2022

@@ -3,14 +3,16 @@ using System;
 using API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API_Folha.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20221011122435_AddImpostos")]
+    partial class AddImpostos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,12 +24,6 @@ namespace API_Folha.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Ano")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("TEXT");
-
                     b.Property<double>("ImpostoFgts")
                         .HasColumnType("REAL");
 
@@ -36,9 +32,6 @@ namespace API_Folha.Migrations
 
                     b.Property<double>("ImpostoRenda")
                         .HasColumnType("REAL");
-
-                    b.Property<int>("Mes")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("QuantidadeHoras")
                         .HasColumnType("INTEGER");

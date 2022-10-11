@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API_Folha.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220913135433_Initial")]
-    partial class Initial
+    [Migration("20221011131521_AddData")]
+    partial class AddData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,6 +24,36 @@ namespace API_Folha.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("Ano")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("ImpostoFgts")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("ImpostoInss")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("ImpostoRenda")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("Mes")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("QuantidadeHoras")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("SalarioBruto")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("SalarioLiquido")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("ValorHora")
+                        .HasColumnType("REAL");
+
                     b.HasKey("Id");
 
                     b.ToTable("Folhas");
@@ -36,16 +66,25 @@ namespace API_Folha.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Cpf")
+                        .IsRequired()
+                        .HasMaxLength(11)
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Nascimento")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<double>("Salario")
+                        .HasColumnType("REAL");
 
                     b.HasKey("Id");
 

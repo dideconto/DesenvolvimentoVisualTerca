@@ -9,25 +9,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API_Folha.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220920122506_AddSalarioEmailTableFuncionarios")]
-    partial class AddSalarioEmailTableFuncionarios
+    [Migration("20221011115647_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.17");
-
-            modelBuilder.Entity("API.Models.FolhaPagamento", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Folhas");
-                });
 
             modelBuilder.Entity("API.Models.Funcionario", b =>
                 {
@@ -36,6 +25,8 @@ namespace API_Folha.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Cpf")
+                        .IsRequired()
+                        .HasMaxLength(11)
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CriadoEm")
@@ -48,6 +39,7 @@ namespace API_Folha.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<double>("Salario")
