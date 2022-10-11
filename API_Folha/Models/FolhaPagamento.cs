@@ -7,7 +7,7 @@ namespace API.Models
     {
         public FolhaPagamento() =>
             CriadoEm = DateTime.Now;
-            
+
         [Key]
         public int Id { get; set; }
         public double ValorHora { get; set; }
@@ -20,5 +20,9 @@ namespace API.Models
         public int Mes { get; set; }
         public int Ano { get; set; }
         public DateTime CriadoEm { get; set; }
+
+        //Relacionamento
+        public int FuncionarioId { get; set; }
+        public Funcionario Funcionario { get; set; }
     }
 }

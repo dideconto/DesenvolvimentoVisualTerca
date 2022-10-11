@@ -3,6 +3,7 @@ using System.Linq;
 using API.Models;
 using API.Utils;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -37,6 +38,9 @@ namespace API.Controllers
                 Calculos.CalcularSalarioLiquido
                 (folha.SalarioBruto, folha.ImpostoRenda, folha.ImpostoInss);
 
+            // folha.Funcionario = 
+                // _context.Funcionarios.Find(folha.FuncionarioId);
+
             _context.Folhas.Add(folha);
             _context.SaveChanges();
             return Created("", folha);
@@ -47,7 +51,8 @@ namespace API.Controllers
         [Route("listar")]
         public IActionResult Listar()
         {
-            List<FolhaPagamento> folhas = _context.Folhas.ToList();
+            List<FolhaPagamento> folhas = 
+                _context.Folhas.Include(f => f.Funcionario).ToList();
 
             if(folhas.Count == 0) return NotFound();
 
@@ -61,6 +66,21 @@ namespace API.Controllers
         {            
             return Ok(_context.Folhas.Where
                 (f => f.CriadoEm.Month == mes && f.CriadoEm.Year == ano).ToList());
+        } 
+
+        // GET: /api/folha/buscar/cpf/mes/ano
+        [HttpGet]
+        [Route("buscar/{cpf}/{mes}/{ano}")]
+        public IActionResult Buscar([FromRoute]string cpf, int mes, int ano)
+        {            
+            return Ok(
+                _context.Folhas
+                .Include(f => f.Funcionario)
+                .FirstOrDefault
+                (f => 
+                    f.CriadoEm.Month == mes && 
+                    f.CriadoEm.Year == ano &&
+                    f.Funcionario.Cpf.Equals(cpf)));
         } 
     }
 }

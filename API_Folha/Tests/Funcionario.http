@@ -6,7 +6,7 @@ POST https://localhost:5001/api/funcionario/cadastrar
 Content-Type: application/json
 
 {
-    "nome" : "Diogo",
+    "nome" : "José",
     "cpf" : "12312312312",
     "email" : "asd@asd.com",
     "salario" : 1000,

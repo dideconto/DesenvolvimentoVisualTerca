@@ -28,6 +28,9 @@ namespace API_Folha.Migrations
                     b.Property<DateTime>("CriadoEm")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("FuncionarioId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<double>("ImpostoFgts")
                         .HasColumnType("REAL");
 
@@ -53,6 +56,8 @@ namespace API_Folha.Migrations
                         .HasColumnType("REAL");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FuncionarioId");
 
                     b.ToTable("Folhas");
                 });
@@ -87,6 +92,17 @@ namespace API_Folha.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Funcionarios");
+                });
+
+            modelBuilder.Entity("API.Models.FolhaPagamento", b =>
+                {
+                    b.HasOne("API.Models.Funcionario", "Funcionario")
+                        .WithMany()
+                        .HasForeignKey("FuncionarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Funcionario");
                 });
 #pragma warning restore 612, 618
         }

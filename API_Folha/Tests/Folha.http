@@ -6,6 +6,7 @@ POST https://localhost:5001/api/folha/cadastrar
 Content-Type: application/json
 
 {
+    "funcionarioid" : 1,
     "valorHora" : 50,
     "quantidadeHoras" : 100,
     "mes" : 10,
@@ -18,3 +19,7 @@ GET https://localhost:5001/api/folha/listar
 
 ### Filtrar folhas por mês e ano
 GET https://localhost:5001/api/folha/filtrar/10/2022
+
+
+### Filtrar folhas por mês e ano
+GET https://localhost:5001/api/folha/buscar/12312312312/10/2022
