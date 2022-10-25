@@ -14,6 +14,10 @@
   - Verificar os dados dentro de qualquer ferramenta de visualização do Sqlite.
 
 ### **Exercício para a aula do dia 25/10/2022**:
-  - 1 - Realizar o cálculo corretamente dos números
-  - 2 - Exibir o resultado no próprio HTML - Operador {{}} double mustache
-  - 3 - Enviar os dados para a sua API - HttpClient - Meu repositório
+  - Realizar o cálculo corretamente dos números
+  - Exibir o resultado no próprio HTML - Operador {{}} double mustache
+  - Enviar os dados para a sua API - HttpClient - Meu repositório
+
+### **Exercício para a aula do dia 01/11/2022**:
+  - Exibir os funcionários dentro do componente;
+  - Realizar a remoção e alteração do funcionário.
