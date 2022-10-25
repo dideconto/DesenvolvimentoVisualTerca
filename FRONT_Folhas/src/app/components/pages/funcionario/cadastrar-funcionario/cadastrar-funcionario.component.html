@@ -3,17 +3,12 @@
 <!-- Material Design Angular -->
 <div id="nome"> 
   <label for="txtNome">Nome</label>
-  <input type="text" id="txtNome" [(ngModel)]="numero1"/>
+  <input type="text" id="txtNome" [(ngModel)]="nome"/>
 </div>
 <div id="cpf">
   <label for="txtCpf">CPF</label>
-  <input type="text" id="txtCpf" [(ngModel)]="numero2" />
+  <input type="text" id="txtCpf" [(ngModel)]="cpf" />
 </div>
 <div id="botao">
   <button id="btnCadastrar" (click)="cadastrar()">Cadastrar</button>
-</div>
-<div>
-  <p>
-    {{ soma }}
-  </p>
 </div>

@@ -21,7 +21,7 @@ namespace API.Models
             MinimumLength = 11,
             ErrorMessage = "O campo CPF deve conter 11 caracteres!"
         )]
-        // [CpfEmUso]
+        [CpfEmUso]
         public string Cpf { get; set; }
 
         [Range(

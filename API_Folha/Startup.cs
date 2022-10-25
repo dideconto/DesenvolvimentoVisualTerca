@@ -28,6 +28,19 @@ namespace API_Folha
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Configuração do CORS
+            services.AddCors(
+                options => {
+                    options.AddPolicy("CorsPolicy", 
+                        policy => 
+                            policy.
+                            AllowAnyOrigin().
+                            AllowAnyHeader().
+                            AllowAnyMethod()
+                        );
+                }
+            );
+
             //Definir qual é o banco de dados e a 
             //string de conexão
             services.AddDbContext<DataContext>
@@ -51,6 +64,8 @@ namespace API_Folha
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API_Folha v1"));
             }
+
+            app.UseCors("CorsPolicy");
 
             app.UseHttpsRedirection();
 
