@@ -7,16 +7,22 @@ import { Component, OnInit } from "@angular/core";
 })
 export class CadastrarFuncionarioComponent implements OnInit {
 
-  numero1: number = 0;
-  numero2: number = 0;
+  numero1!: string;
+  numero2!: string;
+  soma!: number;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   cadastrar(): void {
-    let soma : number = this.numero1 + this.numero2;
-    console.log(soma);
+    this.soma = 
+      Number.parseInt(this.numero1) + 
+      Number.parseInt(this.numero2);
+
+    console.log(this.soma);
+
+
   }
   
 }
