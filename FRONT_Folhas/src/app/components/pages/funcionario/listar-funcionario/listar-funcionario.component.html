@@ -1,1 +1,29 @@
-<p>listar-funcionario works!</p>
+<table>
+  <tr>
+    <th>#</th>
+    <th>Nome</th>
+    <th>Cpf</th>
+    <th>E-mail</th>
+    <th>Salário</th>
+    <th>Nascimento</th>
+    <th>Deletar</th>
+    <th>Alterar</th>
+  </tr>
+  <tr *ngFor="let funcionario of funcionarios">
+    <td>{{ funcionario.id }}</td>
+    <td>{{ funcionario.nome }}</td>  
+    <td>{{ funcionario.cpf }}</td>
+    <td>{{ funcionario.email }}</td>
+    <td>{{ funcionario.salario }}</td>
+    <td>{{ funcionario.nascimento }}</td>
+    <td>
+      <button (click)="deletar(funcionario.id!)">Deletar</button>
+    </td>
+    <td>
+      <a 
+        routerLink="/pages/funcionario/cadastrar/{{ funcionario.id }}">
+        Alterar
+      </a>
+    </td>
+  </tr>
+</table>

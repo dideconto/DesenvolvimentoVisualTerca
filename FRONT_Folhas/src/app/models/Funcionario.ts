@@ -5,5 +5,5 @@ export interface Funcionario{
     salario: number;
     email: string;
     nascimento: string;
-    criadoEm: string;
+    criadoEm?: string;
 }
