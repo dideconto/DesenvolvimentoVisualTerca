@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <th>#</th>
+    <th>Funcionário</th>
+    <th>Horas</th>
+    <th>Valor</th>
+    <th>Bruto</th>
+    <th>IRRF</th>
+    <th>INSS</th>
+    <th>FGTS</th>
+    <th>Líquido</th>
+    <th>Data</th>
+  </tr>
+  <tr *ngFor="let folha of folhas">
+    <td>{{ folha.id }}</td>
+    <td>{{ folha.funcionario?.nome }}</td>
+    <td>{{ folha.quantidadeHoras }}</td>
+    <td>{{ folha.valorHora | currency: "BRL":"R$ " }}</td>
+    <td>{{ folha.salarioBruto | currency: "BRL":"R$ " }}</td>
+    <td>{{ folha.impostoRenda | currency: "BRL":"R$ " }}</td>
+    <td>{{ folha.impostoInss | currency: "BRL":"R$ " }}</td>
+    <td>{{ folha.impostoFgts | currency: "BRL":"R$ " }}</td>
+    <td>{{ folha.salarioLiquido | currency: "BRL":"R$ " }}</td>
+    <td>{{ folha.criadoEm | date: "dd/MM/yyyy" }}</td>
+  </tr>
+</table>
