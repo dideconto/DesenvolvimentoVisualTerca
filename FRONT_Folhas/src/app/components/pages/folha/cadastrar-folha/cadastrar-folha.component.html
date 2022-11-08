@@ -1,1 +1,26 @@
-<p>cadastrar-folha works!</p>
+<h2>Cadastrar Folha</h2>
+
+<div id="valor"> 
+  <label for="txtValor">Valor</label>
+  <input type="number" id="txtValor" [(ngModel)]="valor"/>
+</div>
+<div id="quantidade">
+  <label for="txtQuantidade">Quantidade</label>
+  <input type="number" id="txtQuantidade" [(ngModel)]="quantidade" />
+</div>
+<div id="data">
+  <label for="date">Data</label>
+  <input type="date" id="date" [(ngModel)]="data" />
+</div>
+<div id="funcionario">
+  <label for="funcionario">Funcionários</label>
+  <select [(ngModel)]="funcionarioId">
+      <option *ngFor="let funcionario of funcionarios" 
+        value="{{funcionario.id}}">
+          {{ funcionario.nome }}
+      </option>
+  </select>
+</div>
+<div id="botao">
+  <button id="btnCadastrar" (click)="cadastrar()">Cadastrar</button>
+</div>
