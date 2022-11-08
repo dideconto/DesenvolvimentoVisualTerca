@@ -1,6 +1,9 @@
 <h2>Cadastrar Funcionário</h2>
 
 <!-- Material Design Angular -->
+<div>
+  <label>{{funcionarioId}}</label>
+</div>
 <div id="nome"> 
   <label for="txtNome">Nome</label>
   <input type="text" id="txtNome" [(ngModel)]="nome"/>
@@ -10,7 +13,8 @@
   <input type="text" id="txtCpf" [(ngModel)]="cpf" />
 </div>
 <div id="botao">
-  <button id="btnCadastrar" (click)="cadastrar()">Cadastrar</button>
+  <button *ngIf="!funcionarioId" id="btnCadastrar" (click)="cadastrar()">Cadastrar</button>
+  <button *ngIf="funcionarioId" id="btnAlterar" (click)="alterar()">Salvar</button>
 </div>
 <div>
   <p class="erro">

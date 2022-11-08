@@ -28,13 +28,13 @@ namespace API.Controllers
             return Created("", funcionario);
         }
 
-        // GET: /api/funcionario/buscar/{cpf}
+        // GET: /api/funcionario/buscar/{id}
         [HttpGet]
-        [Route("buscar/{cpf}")]
-        public IActionResult Buscar([FromRoute] string cpf)
+        [Route("buscar/{id}")]
+        public IActionResult Buscar([FromRoute] int id)
         {
             Funcionario funcionario = _context.Funcionarios.
-                FirstOrDefault(f => f.Cpf.Equals(cpf));
+                Find(id);
             return funcionario != null ? Ok(funcionario) : NotFound();
         }
 

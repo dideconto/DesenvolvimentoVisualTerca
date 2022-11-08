@@ -13,8 +13,8 @@ Content-Type: application/json
     "nascimento" : "1900-09-20"
 }
 
-### Buscar um funcionário pelo CPF
-GET https://localhost:5001/api/funcionario/buscar/1234567891
+### Buscar um funcionário pelo Id
+GET https://localhost:5001/api/funcionario/buscar/1
 
 ### Deletar um funcionário pelo Id
 DELETE https://localhost:5001/api/funcionario/deletar/4
