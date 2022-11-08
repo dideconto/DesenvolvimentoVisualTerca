@@ -1,8 +1,8 @@
 <h2>Cadastrar Folha</h2>
 
-<div id="valor"> 
+<div id="valor">
   <label for="txtValor">Valor</label>
-  <input type="number" id="txtValor" [(ngModel)]="valor"/>
+  <input type="number" id="txtValor" [(ngModel)]="valor" />
 </div>
 <div id="quantidade">
   <label for="txtQuantidade">Quantidade</label>
@@ -15,10 +15,12 @@
 <div id="funcionario">
   <label for="funcionario">Funcionários</label>
   <select [(ngModel)]="funcionarioId">
-      <option *ngFor="let funcionario of funcionarios" 
-        value="{{funcionario.id}}">
-          {{ funcionario.nome }}
-      </option>
+    <option
+      *ngFor="let funcionario of funcionarios"
+      value="{{ funcionario.id }}"
+    >
+      {{ funcionario.nome }}
+    </option>
   </select>
 </div>
 <div id="botao">

@@ -1,5 +1,10 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { MatCardModule } from "@angular/material/card";
+import { MatInputModule } from "@angular/material/input";
+import { MatSelectModule } from "@angular/material/select";
+import { MatButtonModule } from "@angular/material/button";
+import { MatDatepickerModule } from "@angular/material/datepicker";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -8,7 +13,9 @@ import { ListarFuncionarioComponent } from "./components/pages/funcionario/lista
 import { CadastrarFolhaComponent } from "./components/pages/folha/cadastrar-folha/cadastrar-folha.component";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { ListarFolhaComponent } from './components/pages/folha/listar-folha/listar-folha.component';
+import { ListarFolhaComponent } from "./components/pages/folha/listar-folha/listar-folha.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatFormField, MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -18,7 +25,19 @@ import { ListarFolhaComponent } from './components/pages/folha/listar-folha/list
     CadastrarFolhaComponent,
     ListarFolhaComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatDatepickerModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

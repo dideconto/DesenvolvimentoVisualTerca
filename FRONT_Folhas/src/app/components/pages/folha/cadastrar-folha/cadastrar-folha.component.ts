@@ -48,7 +48,7 @@ export class CadastrarFolhaComponent implements OnInit {
       .subscribe({
         next: (funcionario) => {
           console.log(funcionario);
-          this.router.navigate(["pages/funcionario/listar"]);
+          this.router.navigate(["pages/folha/listar"]);
         },
       });
   }

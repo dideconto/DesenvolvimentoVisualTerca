@@ -11,6 +11,8 @@ import { Funcionario } from "src/app/models/Funcionario";
 export class CadastrarFuncionarioComponent implements OnInit {
   nome!: string;
   cpf!: string;
+  email!: string;
+  nascimento!: string;
   funcionarioId!: number;
   erro!: string;
 
@@ -23,9 +25,11 @@ export class CadastrarFuncionarioComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       let { id } = params;
-      if(id !== undefined){
-        this.http.get<Funcionario>
-          (`https://localhost:5001/api/funcionario/buscar/${id}`)
+      if (id !== undefined) {
+        this.http
+          .get<Funcionario>(
+            `https://localhost:5001/api/funcionario/buscar/${id}`
+          )
           .subscribe({
             next: (funcionario) => {
               this.nome = funcionario.nome;
@@ -37,14 +41,14 @@ export class CadastrarFuncionarioComponent implements OnInit {
     });
   }
 
-  alterar(): void{
+  alterar(): void {
     let funcionario: Funcionario = {
-      id : this.funcionarioId,
+      id: this.funcionarioId,
       nome: this.nome,
       cpf: this.cpf,
-      email: "diogo@diogo.com",
+      email: this.email,
       salario: 950,
-      nascimento: "2022-10-25",
+      nascimento: this.nascimento,
     };
     //Configuração da requisição
     this.http
@@ -60,9 +64,9 @@ export class CadastrarFuncionarioComponent implements OnInit {
         },
         //Aqui executamos algo quando a requisição for mal-sucedida
         error: (error) => {
-          if(error.status == 400){
+          if (error.status == 400) {
             this.erro = "Erro de validação";
-          }else if(error.status == 0){
+          } else if (error.status == 0) {
             this.erro = "Está faltando iniciar a sua API!";
           }
         },
@@ -73,9 +77,9 @@ export class CadastrarFuncionarioComponent implements OnInit {
     let funcionario: Funcionario = {
       nome: this.nome,
       cpf: this.cpf,
-      email: "diogo@diogo.com",
+      email: this.email,
       salario: 950,
-      nascimento: "2022-10-25",
+      nascimento: this.nascimento,
     };
     //Configuração da requisição
     this.http
@@ -91,9 +95,9 @@ export class CadastrarFuncionarioComponent implements OnInit {
         },
         //Aqui executamos algo quando a requisição for mal-sucedida
         error: (error) => {
-          if(error.status == 400){
+          if (error.status == 400) {
             this.erro = "Erro de validação";
-          }else if(error.status == 0){
+          } else if (error.status == 0) {
             this.erro = "Está faltando iniciar a sua API!";
           }
         },
