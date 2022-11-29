@@ -1,0 +1,9 @@
+POST https://localhost:5001/api/selecao/cadastrar
+Content-Type: application/json
+
+{
+    "nome" : "Portugal"
+}
+
+###
+GET https://localhost:5001/api/selecao/listar

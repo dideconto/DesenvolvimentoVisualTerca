@@ -1,0 +1,30 @@
+<mat-toolbar color="warn">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Palpites dos Jogos da Copa do Mundo</span>
+</mat-toolbar>
+<mat-sidenav-container class="container">
+  <mat-sidenav #sidenav mode="side">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/pages/selecao/cadastrar">
+        <mat-icon class="icon">add</mat-icon>
+        Cadastrar Seleção
+      </a>
+      <a mat-list-item routerLink="/pages/jogo/cadastrar">
+        <mat-icon class="icon">format_list_bulleted_add</mat-icon>
+        Cadastrar Jogos
+      </a>
+      <a mat-list-item routerLink="/pages/jogo/listar">
+        <mat-icon class="icon">sports_soccer</mat-icon>
+        Listar Jogos
+      </a>
+    </mat-nav-list>
+    <!-- Links -->
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <!-- Conteúdo -->
+    <!-- É aqui que os componentes vão entrar -->
+    <router-outlet> </router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

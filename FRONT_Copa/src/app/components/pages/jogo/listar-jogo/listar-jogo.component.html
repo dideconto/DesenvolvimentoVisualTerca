@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <th>#</th>
+    <th>Seleção A</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th>Seleção B</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let jogo of jogos">
+    <td>{{ jogo.id }}</td>
+    <td>{{ jogo.selecaoA?.nome }}</td>
+    <td>{{ jogo.placarA }}</td>
+    <td>X</td>
+    <td>{{ jogo.placarB }}</td>
+    <td>{{ jogo.selecaoB?.nome }}</td>
+    <td>
+      <a
+        mat-raised-button
+        color="warn"
+        routerLink="/pages/jogo/palpitar/{{ jogo.id }}"
+      >
+        Palpitar
+      </a>
+    </td>
+  </tr>
+</table>
